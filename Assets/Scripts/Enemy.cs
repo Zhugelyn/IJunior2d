@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _damage = 35;
     [SerializeField] private float _speed = 2;
+    
     private int _direction;
 
     public void Init(int direction)
