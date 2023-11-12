@@ -24,8 +24,8 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
-        Vector3 direction = _target.transform.position - transform.position;
-        transform.Translate(direction.normalized * _speed * Time.deltaTime);
+        Vector3 direction = (_target.transform.position - transform.position).normalized;
+        transform.Translate(direction * _speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

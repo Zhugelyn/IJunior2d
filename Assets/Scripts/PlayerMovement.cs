@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private int speed = 2;
@@ -16,8 +17,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
             transform.Translate(new Vector3(speed, 0, 0) * Time.deltaTime * -1, Space.World);
+
         if (Input.GetKey(KeyCode.D))
             transform.Translate(new Vector3(speed, 0, 0) * Time.deltaTime, Space.World);
+
         if (Input.GetKey(KeyCode.Space))
             _rigidbody2D.AddForce(Vector2.up * _forceValue);
     }
