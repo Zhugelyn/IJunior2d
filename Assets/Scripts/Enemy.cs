@@ -4,12 +4,17 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _damage = 35;
     [SerializeField] private float _speed = 2;
-    
-    private int _direction;
 
-    public void Init(int direction)
+    private GameObject _target;
+
+    public void Init(Player player)
     {
-        _direction = direction;
+        if (player == null)
+        {
+            throw new System.ArgumentNullException(nameof(player));
+        }
+
+        _target = player.gameObject;
     }
 
     private void Update()
@@ -19,7 +24,8 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
-        gameObject.transform.Translate(new Vector3(_speed, 0, 0) * Time.deltaTime * _direction, Space.World);
+        Vector3 direction = _target.transform.position - transform.position;
+        transform.Translate(direction.normalized * _speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

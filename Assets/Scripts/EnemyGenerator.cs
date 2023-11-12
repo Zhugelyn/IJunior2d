@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    [SerializeField] private List<Transform> _spawnPoints;
     [SerializeField] private Enemy _template;
-    [SerializeField] private int _direction = -1;
+    [SerializeField] private Player _target;
 
     private void Start()
     {
@@ -21,11 +20,8 @@ public class EnemyGenerator : MonoBehaviour
 
         while (isGenerate)
         {
-            int minIndex = 0;
-            int maxIndex = _spawnPoints.Count;
-            int index = Random.Range(minIndex, maxIndex);
-            Enemy enemy = Instantiate(_template, _spawnPoints[index].transform.position, Quaternion.identity);
-            enemy.Init(_direction);
+            Enemy enemy = Instantiate(_template, transform.position, Quaternion.identity);
+            enemy.Init(_target);
 
             yield return waitForSecond;
         }
