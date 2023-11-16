@@ -11,6 +11,7 @@ public class SecuritySystem : MonoBehaviour
     private float _fadeSpeed = 0.5f;
 
     private bool _isInside = false;
+
     private void Update()
     {
         if (_isInside)
