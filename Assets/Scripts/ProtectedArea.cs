@@ -1,17 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ProtectedArea : MonoBehaviour
 {
     [SerializeField] private Signaling _signaling;
 
-    private bool _isInside = false;
+    private UnityEvent _event = new UnityEvent();
 
     private void Update()
     {
-        if (_isInside)
-            _signaling.AcivateSound();
-        else
-            _signaling.DisableSound();
+        _event.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +17,8 @@ public class ProtectedArea : MonoBehaviour
         if (collision.TryGetComponent<Player>(out Player player))
         {
             _signaling.Activate();
-            _isInside = true;
+            _event.AddListener(_signaling.AcivateSound);
+            _event.RemoveListener(_signaling.DisableSound);
         }
     }
 
@@ -27,7 +26,8 @@ public class ProtectedArea : MonoBehaviour
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
-            _isInside = false;
+            _event.AddListener(_signaling.DisableSound);
+            _event.RemoveListener(_signaling.AcivateSound);
         }
     }
 }
