@@ -1479,6 +1479,7 @@ GameObject:
   - component: {fileID: 1038887308}
   - component: {fileID: 1038887307}
   - component: {fileID: 1038887306}
+  - component: {fileID: 1038887310}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -1667,7 +1668,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7145198348311737387, guid: f73dfe034c22cfc41bd7e8799020a5ac, type: 3}
   m_Color: {r: 0.38527945, g: 0.61026543, b: 0.735849, a: 1}
   m_FlipX: 0
@@ -1695,6 +1696,19 @@ Transform:
   - {fileID: 1415447914}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038887310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038887304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a40be22e6078814984ed6cc4dcb0975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 1038887306}
 --- !u!1 &1265653653
 GameObject:
   m_ObjectHideFlags: 0
