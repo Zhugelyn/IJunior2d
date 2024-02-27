@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GoPlaces : MonoBehaviour
+public class PlaceMover: MonoBehaviour
 {
     [SerializeField] private float _speed;
 
